@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-bg text-primary font-sans antialiased overflow-x-hidden; }
+  ::selection { @apply bg-accent/30 text-primary; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 font-display font-semibold text-[0.95rem] transition-all duration-200 border border-transparent; }
+  .btn-primary { @apply bg-accent text-bg hover:bg-[#2ce8c8] hover:shadow-glow hover:-translate-y-px; }
+  .btn-outline { @apply border-border text-primary hover:border-accent hover:text-accent hover:-translate-y-px; }
+  .btn-magento { @apply bg-magento text-white hover:bg-magento-light hover:shadow-[0_0_24px_rgba(242,99,34,0.3)] hover:-translate-y-px; }
+  .section-title { @apply font-display text-4xl md:text-5xl font-semibold tracking-tight; }
+  .accent-underline { @apply relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-1 after:w-full after:rounded after:bg-accent/25 after:content-['']; }
+  .card { @apply relative overflow-hidden rounded-3xl border border-border bg-card p-8 transition-all duration-300; }
+  .card-hover { @apply hover:border-accent hover:-translate-y-1.5 hover:shadow-card; }
+  .pill { @apply inline-flex items-center gap-1.5 rounded-full border border-border bg-surface-light px-4 py-1.5 text-sm font-medium text-secondary transition-colors hover:border-accent; }
+}
