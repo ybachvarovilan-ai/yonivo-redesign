@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { servicesData } from '@/lib/services-data';
 
-// This tells Next.js to pre-build all 11 pages at build time for maximum speed
 export function generateStaticParams() {
   return servicesData.map((s) => ({ slug: s.slug }));
 }
@@ -66,6 +65,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       {/* Deep Dive Text Section */}
       <section className="max-w-4xl mx-auto px-6 mb-20">
         <div className="bg-surface/80 backdrop-blur-lg border border-white/10 rounded-3xl p-8 md:p-12">
+          {/* FIXED: Now correctly targeting .title and .content */}
           <h2 className="font-display text-2xl font-semibold mb-4 text-white">{service.deepDive.title}</h2>
           <p className="text-lg text-secondary leading-relaxed">
             {service.deepDive.content}
