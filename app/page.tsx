@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import TrustBar from '@/components/TrustBar';
 import Services from '@/components/Services';
+import Clients from '@/components/Clients';
+import Maintenance from '@/components/Maintenance';
 import Process from '@/components/Process';
 import PricingFaq from '@/components/PricingFaq';
 import Footer from '@/components/Footer';
@@ -33,8 +35,6 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative isolate overflow-hidden">
-        
-        {/* Three.js Canvas */}
         <div className="absolute inset-0 overflow-hidden z-0">
           <HeroScene />
         </div>
@@ -83,7 +83,6 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Slightly darker glass card (bg-surface/60) so text stays readable against the brighter background */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -110,8 +109,9 @@ export default function Home() {
       </section>
 
       <TrustBar />
-
       <Services />
+      <Clients />
+      <Maintenance />
       <Process />
       <PricingFaq />
       <Footer />
