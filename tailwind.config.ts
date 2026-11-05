@@ -11,9 +11,9 @@ const config: Config = {
         border: '#2a3542',
         primary: '#eef3f8',
         secondary: '#a8b7c7',
-        accent: '#23d4b6',       // Tech Teal
+        accent: '#23d4b6',
         'accent-dark': '#18a88f',
-        magento: '#f26322',      // Magento Orange
+        magento: '#f26322',
         'magento-light': '#ff7a3d',
         card: '#10161d',
       },
@@ -39,10 +39,17 @@ const config: Config = {
           '0%,100%': { opacity: '0.15' },
           '50%': { opacity: '0.35' },
         },
+        // ADDED FADE IN
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
       animation: {
         float: 'float 6s ease-in-out infinite',
         'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
+        // ADDED ANIMATION UTILITY
+        fadeIn: 'fadeIn 1.5s ease-in-out forwards',
       },
     },
   },

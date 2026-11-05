@@ -24,8 +24,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         />
-        {/* Preload the background image for instant display */}
+        {/* Preload the background image */}
         <link rel="preload" as="image" href="/hero-bg.jpg" />
+        
+        {/* PRELOAD THE 3D MODEL - Forces the browser to download it instantly */}
+        <link rel="preload" href="/magento-3d.glb" as="fetch" crossOrigin="anonymous" />
       </head>
       <body className="relative min-h-screen flex flex-col bg-bg">
         
@@ -39,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="fixed inset-0 z-[-1] bg-grid-pattern bg-grid opacity-20 pointer-events-none" />
 
         {/* 3D SCENE WITH SMOOTH FADE IN */}
-        <div className="fixed inset-0 z-0 pointer-events-none opacity-40 md:opacity-100 animate-[fadeIn_1.5s_ease-in-out]">
+        <div className="fixed inset-0 z-0 pointer-events-none opacity-40 md:opacity-100 animate-fadeIn">
           <HeroScene />
         </div>
 
