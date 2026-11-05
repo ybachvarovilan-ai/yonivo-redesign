@@ -24,10 +24,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         />
+        {/* Preload the background image for instant display */}
+        <link rel="preload" as="image" href="/hero-bg.jpg" />
       </head>
       <body className="relative min-h-screen flex flex-col bg-bg">
         
-        {/* BACKGROUND LAYERS (Forced to the very back) */}
+        {/* BACKGROUND LAYERS */}
         <div 
           className="fixed inset-0 z-[-2] bg-cover bg-center bg-no-repeat bg-fixed"
           style={{ backgroundImage: "url('/hero-bg.jpg')" }}
@@ -36,12 +38,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="fixed inset-0 z-[-1] bg-gradient-to-b from-bg/20 via-bg/50 to-bg/90" />
         <div className="fixed inset-0 z-[-1] bg-grid-pattern bg-grid opacity-20 pointer-events-none" />
 
-        {/* 3D SCENE */}
-        <div className="fixed inset-0 z-0 pointer-events-none opacity-40 md:opacity-100">
+        {/* 3D SCENE WITH SMOOTH FADE IN */}
+        <div className="fixed inset-0 z-0 pointer-events-none opacity-40 md:opacity-100 animate-[fadeIn_1.5s_ease-in-out]">
           <HeroScene />
         </div>
 
-        {/* CONTENT (Sits above everything) */}
         <Navbar />
         <main className="relative z-10 flex-grow">
           {children}

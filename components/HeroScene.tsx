@@ -1,14 +1,15 @@
 'use client';
 
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Sphere, useGLTF, Environment } from '@react-three/drei';
-import { useRef } from 'react';
+import { Float, Sphere, useGLTF } from '@react-three/drei';
+import { useRef, Suspense } from 'react';
 import * as THREE from 'three';
+
+// Preload the 3D model immediately so it's ready when the component mounts
+useGLTF.preload('/magento-3d.glb');
 
 function Magento3DLogo() {
   const groupRef = useRef<THREE.Group>(null);
-  
-  // Make sure your file in the public folder is named exactly 'magento-3d.glb'
   const { scene } = useGLTF('/magento-3d.glb'); 
 
   useFrame((state) => {
@@ -58,19 +59,20 @@ export default function HeroScene() {
   return (
     <Canvas
       camera={{ position: [0, 0, 5], fov: 45 }}
-      dpr={[1, 2]}
-      gl={{ antialias: true, alpha: true }}
+      // Lowering dpr slightly massively speeds up load time on high-res screens with virtually no visual difference
+      dpr={[1, 1.5]} 
+      gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
     >
-      <ambientLight intensity={0.4} />
-      <directionalLight position={[3, 4, 5]} intensity={1.5} color="#ffffff" />
-      <pointLight position={[-3, -2, -4]} intensity={1.8} color="#f26322" />
-      
-      <Environment preset="city" />
+      {/* Fast, local lighting instead of the slow external Environment HDR */}
+      <ambientLight intensity={0.8} />
+      <directionalLight position={[5, 5, 5]} intensity={2} color="#ffffff" />
+      <directionalLight position={[-5, 5, -5]} intensity={1} color="#ffffff" />
+      <pointLight position={[0, -5, 0]} intensity={2} color="#f26322" />
 
-      <Magento3DLogo />
-      <FloatingSpheres />
+      <Suspense fallback={null}>
+        <Magento3DLogo />
+        <FloatingSpheres />
+      </Suspense>
     </Canvas>
   );
 }
-
-useGLTF.preload('/magento-3d.glb');

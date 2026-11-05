@@ -1014,6 +1014,9 @@ video {
 .animate-pulse-glow {
   animation: pulse-glow 4s ease-in-out infinite;
 }
+.animate-\[fadeIn_1\.5s_ease-in-out\] {
+  animation: fadeIn 1.5s ease-in-out;
+}
 .cursor-default {
   cursor: default;
 }
