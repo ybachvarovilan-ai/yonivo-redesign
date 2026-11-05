@@ -41,7 +41,7 @@ export default function PricingFaq() {
               </div>
               <p className="text-sm text-secondary">Ad-hoc work, no commitment.</p>
             </div>
-            <a href="#contact" className="btn btn-magento mt-8 w-full">Request a quote</a>
+            <a href="contact" className="btn btn-magento mt-8 w-full">Request a quote</a>
           </div>
         </div>
 

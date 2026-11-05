@@ -19,7 +19,7 @@ export default function Maintenance() {
             <p className="mt-6 text-lg text-secondary">
               Ongoing care for stores that can’t afford downtime, handled by developers who know your code and your server.
             </p>
-            <a href="#contact" className="btn btn-magento mt-8">
+            <a href="contact" className="btn btn-magento mt-8">
               Request a maintenance plan <i className="fas fa-arrow-right" />
             </a>
           </div>
