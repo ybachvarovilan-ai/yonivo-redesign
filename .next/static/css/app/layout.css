@@ -761,9 +761,6 @@ video {
 .mb-1 {
   margin-bottom: 0.25rem;
 }
-.mb-1\.5 {
-  margin-bottom: 0.375rem;
-}
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -805,9 +802,6 @@ video {
 }
 .mt-10 {
   margin-top: 2.5rem;
-}
-.mt-12 {
-  margin-top: 3rem;
 }
 .mt-14 {
   margin-top: 3.5rem;
@@ -966,6 +960,9 @@ video {
 .max-w-xl {
   max-width: 36rem;
 }
+.max-w-xs {
+  max-width: 20rem;
+}
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -991,6 +988,9 @@ video {
   --tw-rotate: 180deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+.animate-\[fadeIn_1\.5s_ease-in-out\] {
+  animation: fadeIn 1.5s ease-in-out;
+}
 @keyframes ping {
 
   75%, 100% {
@@ -1013,9 +1013,6 @@ video {
 }
 .animate-pulse-glow {
   animation: pulse-glow 4s ease-in-out infinite;
-}
-.animate-\[fadeIn_1\.5s_ease-in-out\] {
-  animation: fadeIn 1.5s ease-in-out;
 }
 .cursor-default {
   cursor: default;
@@ -1086,6 +1083,13 @@ video {
 .gap-8 {
   gap: 2rem;
 }
+.gap-x-10 {
+  -moz-column-gap: 2.5rem;
+       column-gap: 2.5rem;
+}
+.gap-y-4 {
+  row-gap: 1rem;
+}
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1105,11 +1109,6 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-}
-.space-y-5 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
 }
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -1272,6 +1271,9 @@ video {
 }
 .bg-magento\/20 {
   background-color: rgb(242 99 34 / 0.2);
+}
+.bg-surface\/30 {
+  background-color: rgb(18 24 31 / 0.3);
 }
 .bg-surface\/50 {
   background-color: rgb(18 24 31 / 0.5);
@@ -1454,9 +1456,6 @@ video {
 .pl-8 {
   padding-left: 2rem;
 }
-.pt-0\.5 {
-  padding-top: 0.125rem;
-}
 .pt-1 {
   padding-top: 0.25rem;
 }
@@ -1625,12 +1624,6 @@ video {
 }
 .text-white\/10 {
   color: rgb(255 255 255 / 0.1);
-}
-.placeholder-secondary\/50::-moz-placeholder {
-  color: rgb(168 183 199 / 0.5);
-}
-.placeholder-secondary\/50::placeholder {
-  color: rgb(168 183 199 / 0.5);
 }
 .opacity-0 {
   opacity: 0;
@@ -1851,10 +1844,6 @@ video {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.hover\:underline:hover {
-  text-decoration-line: underline;
 }
 
 .hover\:opacity-80:hover {

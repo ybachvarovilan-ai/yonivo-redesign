@@ -1,77 +1,64 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
-  const steps = [
-    'Share a few details about your store and your goals.',
-    'Tell us a little about your store and what you have in mind.',
-    'Send us your store’s address with a short note on your goals.'
-  ];
-
   return (
-    <footer id="contact" className="relative overflow-hidden border-t border-white/5 pt-24 pb-8 mt-auto backdrop-blur-sm">
+    <footer className="relative overflow-hidden border-t border-white/5 pt-16 pb-8 mt-auto backdrop-blur-md bg-surface/30">
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="grid lg:grid-cols-2 gap-16 mb-20">
-          <div>
-            <h2 className="section-title text-4xl md:text-5xl">
-              <span className="accent-underline">Tell us about your store</span>
-            </h2>
-            <p className="mt-6 text-xl text-secondary">
-              You talk directly to the developer who’ll do the work.
+        
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+          {/* Logo & Tagline */}
+          <div className="text-center md:text-left">
+            <Link href="/" className="inline-block mb-4">
+              <Image 
+                src="/logo.png" 
+                alt="Yonivo Logo" 
+                width={160} 
+                height={40} 
+                className="h-8 w-auto object-contain"
+              />
+            </Link>
+            <p className="text-secondary text-sm max-w-xs">
+              One team, from the storefront to the server. Building and running Magento 2 stores worldwide.
             </p>
-            
-            <div className="mt-12 p-8 rounded-3xl bg-surface/60 border border-white/10 backdrop-blur-md">
-              <h3 className="font-display text-xl font-semibold mb-4 text-magento">What happens next</h3>
-              <ul className="space-y-4">
-                {steps.map((step, i) => (
-                  <li key={i} className="flex gap-4 items-start">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-magento/20 text-magento text-sm font-bold font-display">
-                      {i + 1}
-                    </span>
-                    <span className="text-secondary text-sm pt-0.5">{step}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
-          <div className="bg-surface/60 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-10 shadow-2xl">
-            <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
-              <div>
-                <label className="block text-sm font-medium text-secondary mb-1.5">Store Address / URL</label>
-                <input type="text" placeholder="https://yourstore.com" className="w-full bg-bg/50 border border-white/10 rounded-xl px-4 py-3 text-primary placeholder-secondary/50 focus:outline-none focus:border-magento transition-colors" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-secondary mb-1.5">Your Name</label>
-                <input type="text" placeholder="John Doe" className="w-full bg-bg/50 border border-white/10 rounded-xl px-4 py-3 text-primary placeholder-secondary/50 focus:outline-none focus:border-magento transition-colors" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-secondary mb-1.5">Email Address</label>
-                <input type="email" placeholder="john@example.com" className="w-full bg-bg/50 border border-white/10 rounded-xl px-4 py-3 text-primary placeholder-secondary/50 focus:outline-none focus:border-magento transition-colors" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-secondary mb-1.5">What are your goals?</label>
-                <textarea rows={4} placeholder="Tell us a little about your store and what you have in mind..." className="w-full bg-bg/50 border border-white/10 rounded-xl px-4 py-3 text-primary placeholder-secondary/50 focus:outline-none focus:border-magento transition-colors resize-none"></textarea>
-              </div>
-              <button type="submit" className="btn btn-magento w-full py-4 text-lg mt-2">
-                Send message <i className="fas fa-paper-plane ml-2"></i>
-              </button>
-              <p className="text-center text-xs text-secondary mt-4">
-                Or email us directly at <a href="mailto:office@yonivo.com" className="text-accent hover:underline">office@yonivo.com</a>
-              </p>
-            </form>
+          {/* Links */}
+          <div className="flex flex-wrap justify-center gap-x-10 gap-y-4 text-sm font-display">
+            <div className="flex flex-col gap-2">
+              <span className="text-white font-semibold mb-2">Services</span>
+              <Link href="/services/magento-development" className="text-secondary hover:text-magento transition-colors">Magento Development</Link>
+              <Link href="/services/hyva-development" className="text-secondary hover:text-magento transition-colors">Hyvä Storefronts</Link>
+              <Link href="/services/server-management" className="text-secondary hover:text-magento transition-colors">Server Management</Link>
+              <Link href="/services/all" className="text-magento hover:text-white transition-colors mt-2">See all services &rarr;</Link>
+            </div>
+            
+            <div className="flex flex-col gap-2">
+              <span className="text-white font-semibold mb-2">Company</span>
+              <Link href="/work" className="text-secondary hover:text-magento transition-colors">Work</Link>
+              <Link href="/pricing" className="text-secondary hover:text-magento transition-colors">Pricing</Link>
+              <Link href="/about" className="text-secondary hover:text-magento transition-colors">About</Link>
+              <Link href="/contact" className="text-secondary hover:text-magento transition-colors">Contact</Link>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <span className="text-white font-semibold mb-2">Contact</span>
+              <a href="mailto:office@yonivo.com" className="text-secondary hover:text-magento transition-colors">office@yonivo.com</a>
+              <span className="text-secondary">Varna, Bulgaria</span>
+              <span className="text-secondary">EU (CET +1)</span>
+            </div>
           </div>
         </div>
 
+        {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-secondary">
           <span>© 2025 Yonivo. Magento 2 experts — Varna, Bulgaria.</span>
           <div className="flex gap-6">
-            <Link href="/services" className="hover:text-accent transition-colors">Services</Link>
-            <Link href="/pricing" className="hover:text-accent transition-colors">Pricing</Link>
-            <Link href="/contact" className="hover:text-accent transition-colors">Contact</Link>
+            <span className="cursor-pointer hover:text-white transition-colors">EN</span>
+            <span className="cursor-pointer hover:text-white transition-colors">BG</span>
           </div>
         </div>
+
       </div>
     </footer>
   );
