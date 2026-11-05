@@ -1,3 +1,7 @@
+'use client';
+
+import Link from 'next/link';
+
 export default function Footer() {
   const steps = [
     'Share a few details about your store and your goals.',
@@ -6,11 +10,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer id="contact" className="relative overflow-hidden border-t border-white/5 pt-24 pb-8 bg-bg/80 backdrop-blur-lg">
+    <footer id="contact" className="relative overflow-hidden border-t border-white/5 pt-24 pb-8 mt-auto backdrop-blur-sm">
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-2 gap-16 mb-20">
-          
-          {/* Contact Info */}
           <div>
             <h2 className="section-title text-4xl md:text-5xl">
               <span className="accent-underline">Tell us about your store</span>
@@ -20,11 +22,11 @@ export default function Footer() {
             </p>
             
             <div className="mt-12 p-8 rounded-3xl bg-surface/60 border border-white/10 backdrop-blur-md">
-              <h3 className="font-display text-xl font-semibold mb-4 text-accent">What happens next</h3>
+              <h3 className="font-display text-xl font-semibold mb-4 text-magento">What happens next</h3>
               <ul className="space-y-4">
                 {steps.map((step, i) => (
                   <li key={i} className="flex gap-4 items-start">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent text-sm font-bold font-display">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-magento/20 text-magento text-sm font-bold font-display">
                       {i + 1}
                     </span>
                     <span className="text-secondary text-sm pt-0.5">{step}</span>
@@ -34,7 +36,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className="bg-surface/60 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-10 shadow-2xl">
             <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
               <div>
@@ -61,16 +62,14 @@ export default function Footer() {
               </p>
             </form>
           </div>
-
         </div>
 
-        {/* Footer Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-secondary">
           <span>© 2025 Yonivo. Magento 2 experts — Varna, Bulgaria.</span>
           <div className="flex gap-6">
-            <a href="#services" className="hover:text-accent transition-colors">Services</a>
-            <a href="#pricing" className="hover:text-accent transition-colors">Pricing</a>
-            <a href="#contact" className="hover:text-accent transition-colors">Contact</a>
+            <Link href="/services" className="hover:text-accent transition-colors">Services</Link>
+            <Link href="/pricing" className="hover:text-accent transition-colors">Pricing</Link>
+            <Link href="/contact" className="hover:text-accent transition-colors">Contact</Link>
           </div>
         </div>
       </div>

@@ -1,16 +1,18 @@
+'use client';
+
 import Link from 'next/link';
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-bg text-primary pt-24 pb-32">
+    <div className="min-h-screen text-primary pt-24 pb-32 backdrop-blur-md bg-bg/40">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16">
           
           <div>
-            <h1 className="font-display text-5xl md:text-6xl font-bold tracking-tight mb-6 text-white">
+            <h1 className="font-display text-5xl md:text-6xl font-bold tracking-tight mb-6 text-white drop-shadow-lg">
               Tell us about your store
             </h1>
-            <p className="text-xl text-secondary mb-12">
+            <p className="text-xl text-secondary mb-12 drop-shadow-md">
               Share your store URL and what you need. We’ll reply with next steps and a time for a free call.
             </p>
             

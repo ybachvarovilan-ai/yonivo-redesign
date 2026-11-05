@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image'; // <-- Added Image import
 import clsx from 'clsx';
 import { servicesData } from '@/lib/services-data';
 
@@ -15,6 +16,7 @@ const mainLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -34,23 +36,44 @@ export default function Navbar() {
       )}
     >
       <nav className="container mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/" className="font-display text-3xl font-bold tracking-tight text-white flex items-center gap-2">
-          <i className="fas fa-code text-magento"></i>
-          yonivo<span className="text-magento">.</span>
+        
+        {/* LOGO REPLACEMENT HERE */}
+        <Link href="/" className="flex items-center">
+          <Image 
+            src="/logo.png" 
+            alt="Yonivo Logo" 
+            width={160} 
+            height={40} 
+            className="h-9 md:h-10 w-auto object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-8 md:flex">
           
           {/* Mega Menu Dropdown */}
-          <div className="relative group">
-            <button className="font-display text-white transition-colors hover:text-magento flex items-center gap-1.5 py-2 border-b-2 border-transparent group-hover:border-magento">
+          <div 
+            className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
+            <button 
+              className={clsx(
+                "font-display transition-colors flex items-center gap-1.5 py-2 border-b-2",
+                servicesOpen ? "text-magento border-magento" : "text-white border-transparent hover:text-magento"
+              )}
+              onClick={() => setServicesOpen(!servicesOpen)}
+            >
               Services
-              <i className="fas fa-chevron-down text-[0.6rem] transition-transform group-hover:rotate-180" />
+              <i className={clsx("fas fa-chevron-down text-[0.6rem] transition-transform", servicesOpen && "rotate-180")} />
             </button>
             
             {/* Dropdown Content */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div className={clsx(
+              "absolute left-1/2 -translate-x-1/2 top-full pt-4 transition-all duration-200 z-50",
+              servicesOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
+            )}>
               <div className="w-[850px] rounded-2xl border border-white/10 bg-[#131722] p-8 shadow-2xl flex gap-8">
                 
                 {/* Columns */}
@@ -65,7 +88,11 @@ export default function Navbar() {
                     <ul className="space-y-4">
                       {magento.map(s => (
                         <li key={s.slug}>
-                          <Link href={`/services/${s.slug}`} className="block group/item hover:bg-white/5 p-2 -mx-2 rounded-lg transition-colors">
+                          <Link 
+                            href={`/services/${s.slug}`} 
+                            onClick={() => setServicesOpen(false)}
+                            className="block group/item hover:bg-white/5 p-2 -mx-2 rounded-lg transition-colors"
+                          >
                             <div className="text-white font-medium text-sm group-hover/item:text-magento transition-colors leading-snug">{s.title}</div>
                             <div className="text-secondary text-xs mt-1 line-clamp-2 leading-relaxed">{s.subtitle}</div>
                           </Link>
@@ -83,7 +110,11 @@ export default function Navbar() {
                     <ul className="space-y-4">
                       {servers.map(s => (
                         <li key={s.slug}>
-                          <Link href={`/services/${s.slug}`} className="block group/item hover:bg-white/5 p-2 -mx-2 rounded-lg transition-colors">
+                          <Link 
+                            href={`/services/${s.slug}`} 
+                            onClick={() => setServicesOpen(false)}
+                            className="block group/item hover:bg-white/5 p-2 -mx-2 rounded-lg transition-colors"
+                          >
                             <div className="text-white font-medium text-sm group-hover/item:text-magento transition-colors leading-snug">{s.title}</div>
                             <div className="text-secondary text-xs mt-1 line-clamp-2 leading-relaxed">{s.subtitle}</div>
                           </Link>
@@ -101,7 +132,11 @@ export default function Navbar() {
                     <ul className="space-y-4">
                       {beyond.map(s => (
                         <li key={s.slug}>
-                          <Link href={`/services/${s.slug}`} className="block group/item hover:bg-white/5 p-2 -mx-2 rounded-lg transition-colors">
+                          <Link 
+                            href={`/services/${s.slug}`} 
+                            onClick={() => setServicesOpen(false)}
+                            className="block group/item hover:bg-white/5 p-2 -mx-2 rounded-lg transition-colors"
+                          >
                             <div className="text-white font-medium text-sm group-hover/item:text-magento transition-colors leading-snug">{s.title}</div>
                             <div className="text-secondary text-xs mt-1 line-clamp-2 leading-relaxed">{s.subtitle}</div>
                           </Link>
@@ -116,7 +151,11 @@ export default function Navbar() {
                 <div className="w-[240px] bg-[#1a2130] rounded-xl p-6 border border-white/5 flex flex-col justify-center">
                   <h4 className="font-display text-white font-semibold mb-2">Not sure where to start?</h4>
                   <p className="text-secondary text-sm mb-6 leading-relaxed">Describe the problem and we'll tell you where it sits and what fixing it involves.</p>
-                  <Link href="/services/all" className="text-white font-medium text-sm border-b border-magento pb-1 inline-block w-fit hover:text-magento transition-colors">
+                  <Link 
+                    href="/services/all" 
+                    onClick={() => setServicesOpen(false)}
+                    className="text-white font-medium text-sm border-b border-magento pb-1 inline-block w-fit hover:text-magento transition-colors"
+                  >
                     See all services
                   </Link>
                 </div>

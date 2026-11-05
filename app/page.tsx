@@ -1,17 +1,12 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import Navbar from '@/components/Navbar';
 import TrustBar from '@/components/TrustBar';
 import Services from '@/components/Services';
 import Clients from '@/components/Clients';
 import Maintenance from '@/components/Maintenance';
 import Process from '@/components/Process';
 import PricingFaq from '@/components/PricingFaq';
-import Footer from '@/components/Footer';
-
-const HeroScene = dynamic(() => import('@/components/HeroScene'), { ssr: false });
 
 const stats = [
   { value: '11', label: 'countries' },
@@ -31,14 +26,8 @@ const pills = [
 export default function Home() {
   return (
     <>
-      <Navbar />
-
       {/* HERO */}
-      <section className="relative isolate overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden z-0">
-          <HeroScene />
-        </div>
-
+      <section className="relative overflow-hidden">
         <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 lg:grid-cols-[1.2fr_0.8fr] lg:py-32">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -114,7 +103,6 @@ export default function Home() {
       <Maintenance />
       <Process />
       <PricingFaq />
-      <Footer />
     </>
   );
 }

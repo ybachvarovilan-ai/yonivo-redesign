@@ -14,7 +14,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="min-h-screen bg-bg text-primary pt-10 pb-24">
+    <div className="min-h-screen text-primary pt-10 pb-24">
       
       {/* Breadcrumb / Back Link */}
       <div className="max-w-4xl mx-auto px-6 mb-12">
@@ -28,10 +28,10 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-magento/10 text-3xl text-magento mb-6">
           <i className={`fas ${service.icon}`} />
         </div>
-        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-white">
+        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-white drop-shadow-lg">
           {service.title}
         </h1>
-        <p className="text-xl md:text-2xl text-secondary leading-relaxed max-w-3xl">
+        <p className="text-xl md:text-2xl text-secondary leading-relaxed max-w-3xl drop-shadow-md">
           {service.intro}
         </p>
       </section>
@@ -54,7 +54,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         <h2 className="font-display text-2xl font-semibold mb-8 text-white">What we build</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           {service.whatWeBuild.map((item, i) => (
-            <div key={i} className="bg-bg/50 border border-white/5 rounded-xl p-5 hover:border-magento/50 transition-colors">
+            <div key={i} className="bg-surface/60 backdrop-blur-md border border-white/10 rounded-xl p-5 hover:border-magento/50 transition-colors">
               <h3 className="font-display font-medium text-magento mb-2">{item.title}</h3>
               <p className="text-secondary text-sm">{item.desc}</p>
             </div>
@@ -65,7 +65,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       {/* Deep Dive Text Section */}
       <section className="max-w-4xl mx-auto px-6 mb-20">
         <div className="bg-surface/80 backdrop-blur-lg border border-white/10 rounded-3xl p-8 md:p-12">
-          {/* FIXED: Now correctly targeting .title and .content */}
           <h2 className="font-display text-2xl font-semibold mb-4 text-white">{service.deepDive.title}</h2>
           <p className="text-lg text-secondary leading-relaxed">
             {service.deepDive.content}
@@ -90,7 +89,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
       {/* Pricing Callout */}
       <section className="max-w-4xl mx-auto px-6 mb-20">
-        <div className="bg-[#131722] border border-white/10 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="bg-surface/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
           <div>
             <h3 className="font-display font-semibold text-white text-lg mb-1">See pricing</h3>
             <p className="text-secondary text-sm">Same rates for every service. Monthly plans from €1,500, or €85 an hour with no commitment.</p>
@@ -103,7 +102,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
       {/* Final CTA */}
       <section className="max-w-4xl mx-auto px-6 text-center">
-        <h2 className="font-display text-3xl font-bold text-white mb-6">
+        <h2 className="font-display text-3xl font-bold text-white mb-6 drop-shadow-md">
           Need help with {service.title.toLowerCase()}?
         </h2>
         <Link href="/contact" className="btn btn-magento text-lg px-8 py-4 shadow-xl">
