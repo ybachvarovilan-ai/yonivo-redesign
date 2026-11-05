@@ -36,7 +36,7 @@ export default function Services() {
             </h2>
             <p className="mt-4 max-w-2xl text-lg text-secondary">From the code to the infrastructure. One partner, zero handoffs.</p>
           </div>
-          <a href="#contact" className="text-accent hover:opacity-80 font-display font-medium flex items-center gap-2 whitespace-nowrap">
+          <a href="/services/all" className="text-accent hover:opacity-80 font-display font-medium flex items-center gap-2 whitespace-nowrap">
             See all services <i className="fas fa-arrow-right text-sm"></i>
           </a>
         </div>
